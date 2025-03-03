@@ -8,7 +8,7 @@ import {
 
 await initThreadPool();
 
-const programName = "share_pregnancy_status.aleo";
+const programName = "denver_share_pregnancy_status.aleo";
 
 const share_pregnancy_status_program = `
 program ${programName};
@@ -24,12 +24,7 @@ function share_status:
     input r0 as HealthInfo.private;
     output r0.is_pregnant as boolean.private;`;
 
-async function localProgramExecution(
-  program,
-  programName,
-  aleoFunction,
-  inputs
-) {
+async function localProgramExecution(program, programName, aleoFunction, inputs) {
   const programManager = new ProgramManager();
 
   // Create a temporary account for the execution of the program
@@ -47,10 +42,7 @@ async function localProgramExecution(
     aleoFunction,
     inputs
   );
-  programManager.keyProvider.cacheKeys(
-    `${programName}:${aleoFunction}`,
-    keyPair
-  );
+  programManager.keyProvider.cacheKeys(`${programName}:${aleoFunction}`, keyPair);
 
   // Specify parameters for the key provider to use search for program keys. In particular specify the cache key
   // that was used to cache the keys in the previous step.
@@ -99,10 +91,7 @@ console.log("Adding default Data!");
 console.log(inputData);
 console.log("Finished adding default Data!");
 
-await localProgramExecution(
-  share_pregnancy_status_program,
-  programName,
-  "share_status",
-  [inputData]
-);
+await localProgramExecution(share_pregnancy_status_program, programName, "share_status", [
+  inputData,
+]);
 console.log("Execute finished!", Date.now() - start);
