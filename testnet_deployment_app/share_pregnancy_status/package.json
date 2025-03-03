@@ -1,0 +1,14 @@
+{
+  "name": "share_pregnancy_status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "Raktim Shrestha",
+  "license": "ISC",
+  "dependencies": {
+    "@provablehq/sdk": "^0.7.0",
+    "core-js": "^3.38.1"
+  }
+}
