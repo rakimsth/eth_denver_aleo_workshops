@@ -43,7 +43,7 @@ function App() {
   async function deploy() {
     setDeploying(true);
     try {
-      const result = await aleoWorker.deployProgram(share_pregnancy_status_program);
+      const result = await aleoWorker.deployProgram(denver_share_pregnancy_status_program);
       console.log("Transaction:");
       console.log("https://explorer.hamp.app/transaction?id=" + result);
       alert("Transaction ID: " + result);
